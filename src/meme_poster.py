@@ -10,7 +10,7 @@ class MemePosterCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-        # حفظ الإعدادات بمفتاح فريد يجمع السيرفر واللغة: "guildId_lang" لمنع أي تداخل نهائياً
+        # حفظ الإعدادات بمفتاح  يجمع السيرفر واللغة: "guildId_lang" لمنع أي تداخل نهائياً
         # البنية: { "guildId_lang": {"channel_id": int, "interval": int, "lang": str, "active": bool, "minutes_counter": 0} }
         self.guild_settings = {}
         
@@ -21,7 +21,7 @@ class MemePosterCog(commands.Cog):
             "ru": ["Pikabu", "ru"]
         }
         
-        # مخزون احتياطي للميمز لضمان العمل 100% حتى لو فشل سيرفر Reddit أو كان المجتمع خاصاً
+        # مخزون احتياطي للميمز لضمان العمل حتى لو فشل سيرفر Reddit أو كان المجتمع خاصاً
         self.fallback_memes = {
             "ar": [
                 "https://i.imgur.com/vHdfDk4.jpeg",
@@ -47,7 +47,7 @@ class MemePosterCog(commands.Cog):
     def cog_unload(self):
         self.meme_sender_task.cancel()
 
-    # --- 1. أمر الإعداد والتشغيل السريع ---
+    # --- 1. أمر الإعداد والتشغيل  ---
     @app_commands.command(name="meme_setup", description="إعداد وتشغيل نشر الميمز التلقائي للغة معينة في هذا السيرفر")
     @app_commands.choices(lang=[
         app_commands.Choice(name="العربية (Arabic)", value="ar"),
@@ -63,7 +63,7 @@ class MemePosterCog(commands.Cog):
             return
 
         guild_id = interaction.guild_id
-        # مفتاح فريد يدمج السيرفر واللغة معاً
+        # مفتاح  يدمج السيرفر واللغة معاً
         setup_key = f"{guild_id}_{lang}"
         
         self.guild_settings[setup_key] = {
