@@ -12,7 +12,7 @@ class MyBot(commands.Bot):
         super().__init__(command_prefix="!", intents=intents)
 
     async def setup_hook(self):
-        # --- تحميل ملفات نظام اللغات والترجمة ونظام النقاط الجديدة ---
+        # --- تحميل ملفات نظام اللغات والترجمة ونظام النقاط  ---
         await self.load_extension("translation_system")
         await self.load_extension("points_system")
 
@@ -35,7 +35,7 @@ bot = MyBot()
 async def on_ready():
     print(f'🤖 تم تسجيل الدخول باسم: {bot.user.name}')
 
-# 👑 الأمر السحري للمزامنة الإجبارية (لك أنت فقط كصاحب البوت)
+ا
 @bot.command(name="sync")
 @commands.is_owner() # للتأكد أنك أنت فقط من تشغله
 async def sync_commands(ctx):
